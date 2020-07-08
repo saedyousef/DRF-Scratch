@@ -1,5 +1,4 @@
 from blog.models import Article, Category
-from django.contrib.auth.models import User
 from rest_framework import serializers
 
 
@@ -12,8 +11,3 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Category
         fields = ['url', 'id', 'title', 'description']
-
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'is_staff']
