@@ -17,15 +17,18 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from blog import views
+from users import views as usersViews
 from rest_framework.documentation import include_docs_urls
 
 router = routers.DefaultRouter()
+userRouter = routers.DefaultRouter()
 router.register(r'articles', views.ArticleViewSet)
 router.register(r'categories', views.CategoryViewSet)
-router.register(r'users', views.UserViewSet)
+userRouter.register(r'users', usersViews.UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include_docs_urls(title='Blog API', description='RESTful API for Blog')),
-    path('', include(router.urls)),
+    path('api/blog/', include(router.urls)),
+    path('api/auth/', include(userRouter.urls)),
 ]

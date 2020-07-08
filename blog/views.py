@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from blog.serializers import ArticleSerializer, UserSerializer, CategorySerializer
+from blog.serializers import ArticleSerializer, CategorySerializer
 from blog.models import Article, Category
-from django.contrib.auth.models import User
-from rest_framework.views import APIView
 # Create your views here.
 
 class ArticleViewSet(viewsets.ModelViewSet):
@@ -21,12 +19,4 @@ class CategoryViewSet(viewsets.ModelViewSet):
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    http_method_names = ['get']
-
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
     http_method_names = ['get']
