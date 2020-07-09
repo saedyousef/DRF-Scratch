@@ -6,7 +6,7 @@ from blog.models import Article, Category
 
 class ArticleViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows articles to be viewed or edited.
+    API endpoint that allows articles to be viewed.
     """
     queryset = Article.objects.all().order_by('-publish_date')
     serializer_class = ArticleSerializer
@@ -15,7 +15,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
 class CategoryViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows categories to be viewed or edited.
+    API endpoint that allows categories to be viewed.
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
