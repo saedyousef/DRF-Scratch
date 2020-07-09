@@ -21,18 +21,22 @@ from users import views as usersViews
 from rest_framework.authtoken import views as drfViews
 from rest_framework.documentation import include_docs_urls
 
-
+# Creates instance from DefaultRouter.
 router = routers.DefaultRouter()
 authRouter = routers.DefaultRouter()
+
+# Assigning actions to routes.
 router.register(r'articles', views.ArticleViewSet)
 router.register(r'categories', views.CategoryViewSet)
 authRouter.register(r'users', usersViews.UserViewSet)
 
-
+# All APIs require authentication (Token).
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include_docs_urls(title='Blog API', description='RESTful API for Blog')),
     path('api/blog/', include(router.urls)),
     path('api/auth/', include(authRouter.urls)),
+
+    # This API will generate a Token for a user (POST username and password are reauired).
     path('api/auth/token', drfViews.obtain_auth_token, name='get_auth_toekn'),
 ]
