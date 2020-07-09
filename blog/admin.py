@@ -4,6 +4,7 @@ from blog.models import Category, Article
 
 class ArticleAdmin(admin.ModelAdmin):
     search_fields = ['category__title']
+    fields = ['title', 'description', 'category']
     list_display = ('title', 'author', 'get_category', 'publish_date')
 
     # Get the title attribute from Categor.
