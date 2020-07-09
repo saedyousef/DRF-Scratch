@@ -19,8 +19,8 @@ class ArticleAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 class CategoryAdmin(admin.ModelAdmin):
-    search_fields = ['title']
-    list_display = ('title', 'description')
+    search_fields = ['title', 'description']
+    list_display = ('title', 'description', 'created')
 
 # Regsitering models to be shown on Admin Site.
 admin.site.register(Article, ArticleAdmin)
