@@ -20,7 +20,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     search_fields = ['title']
-    list_display = ('title', 'description')
+    list_display = ('title', 'description', 'created')
 
 # Regsitering models to be shown on Admin Site.
 admin.site.register(Article, ArticleAdmin)
