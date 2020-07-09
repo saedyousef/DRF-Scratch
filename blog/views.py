@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.decorators import action
 from blog.serializers import ArticleSerializer, CategorySerializer
 from blog.models import Article, Category
 # Create your views here.
@@ -20,3 +22,9 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     http_method_names = ['get']
+
+
+class ReactionViewSet(viewsets.ViewSet):
+    @action(detail=False, methods=['get'])
+    def hello(self, request, **kwargs):
+        return Response('Hello')

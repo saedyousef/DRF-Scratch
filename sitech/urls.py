@@ -28,6 +28,7 @@ authRouter = routers.DefaultRouter()
 # Assigning actions to routes.
 router.register(r'articles', views.ArticleViewSet)
 router.register(r'categories', views.CategoryViewSet)
+router.register(r'report', views.ReactionViewSet, basename='report')
 authRouter.register(r'users', usersViews.UserViewSet)
 
 # All APIs require authentication (Token).
