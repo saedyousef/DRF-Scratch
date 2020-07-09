@@ -16,7 +16,7 @@ class Category(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    publish_date = models.DateField()
+    publish_date = models.DateField(auto_now=True)
     author = models.ForeignKey(User, on_delete = models.CASCADE)
     category = models.ForeignKey(Category, on_delete = models.CASCADE, related_name="cat")
 
