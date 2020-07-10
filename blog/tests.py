@@ -35,17 +35,6 @@ class APITestCase(APITestCase):
         self.assertEqual(articles.count(), 3)
 
 
-    def test_obtain_token(self):
-        url = reverse('get_auth_toekn')
-        data = {
-            'username': 'testuser',
-            'password': 'TestPWD'
-        }
-
-        response = self.client.post(url, data, format='json')
-        token = json.loads(response.content)['token']
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
     def test_reaction(self):
         user = User.objects.get(username='testuser')
         token = Token.objects.create(user=user)
