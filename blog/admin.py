@@ -5,11 +5,14 @@ from blog.models import Category, Article
 class ArticleAdmin(admin.ModelAdmin):
     search_fields = ['category__title']
     fields = ['title', 'description', 'category']
-    list_display = ('title', 'author', 'get_category', 'publish_date')
+    list_display = ('title', 'author', 'get_category', 'publish_date', 'likes')
 
     # Get the title attribute from Categor.
     def get_category(self, obj):
         return obj.category.title
+    
+    def likes(self, obj):
+        return obj.likes_count()
 
     # Label for get_category.
     get_category.short_description = "Category"

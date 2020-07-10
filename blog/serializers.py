@@ -3,10 +3,10 @@ from rest_framework import serializers
 
 
 class ArticleSerializer(serializers.HyperlinkedModelSerializer):
-    likes = serializers.SerializerMethodField('likes_count')
+    likes = serializers.SerializerMethodField('count')
 
-    def likes_count(self, obj):
-        return Reaction.objects.filter(article=obj).all().count()
+    def count(self, obj):
+        return obj.likes_count()
     class Meta:
         model = Article
         fields = ['url', 'id', 'title', 'description', 'author', 'category', 'publish_date', 'likes']
@@ -15,3 +15,6 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Category
         fields = ['url', 'id', 'title', 'description']
+
+class ReactionSerializer(serializers.Serializer):
+    article_id = serializers.IntegerField(required=True, allow_null=False)

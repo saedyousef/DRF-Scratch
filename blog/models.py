@@ -21,6 +21,10 @@ class Article(models.Model):
     def __str__(self):
         return f"{self.title}"
 
+    # Return likes count for each Article object.
+    def likes_count(self):
+        return Reaction.objects.filter(article=self).all().count()
+
 # Reaction Model to store 'Likes' of an article.
 class Reaction(models.Model):
     # Reaction type Constant
