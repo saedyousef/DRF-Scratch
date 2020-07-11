@@ -21,7 +21,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows categories to be viewed.
     """
-    queryset = Category.objects.all()
+    queryset = Category.objects.all().order_by('-created')
     serializer_class = CategorySerializer
     http_method_names = ['get']
 

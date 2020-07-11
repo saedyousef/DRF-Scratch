@@ -13,10 +13,12 @@ class Validations():
 
     # Check if article is exists.
     def check_article(self, article_id):
-        if not article_id.isnumeric():
-            return False
-        else:
-            article_id = int(article_id)
+        if not isinstance(article_id, int):
+            if not article_id.isnumeric():
+                return False
+            else:
+                article_id = int(article_id)
+        
         if not Article.objects.filter(pk=article_id).exists():
             return False
         else:

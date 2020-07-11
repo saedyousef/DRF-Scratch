@@ -39,5 +39,5 @@ urlpatterns = [
     path('api/auth/', include(authRouter.urls)),
 
     # This API will generate a Token for a user (POST username and password are reauired).
-    path('api/auth/token', drfViews.obtain_auth_token, name='get_auth_toekn'),
+    path('api/auth/token', drfViews.obtain_auth_token, name='get_auth_token'),
 ]
