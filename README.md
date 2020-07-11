@@ -33,14 +33,14 @@
 > Login with the user you've already created, and click on the __Category__ and add one, the go back and click on the __Article__ and add an article
 
 ---
-> ## APIs
+## APIs
 
 ---
 
 You may need and app to interact with apis, so here you can install and run [Postman](https://www.postman.com/downloads/) to test the apis
 
 ---
-> Articles
+> ## Articles
 Articles list, an API that returns a list of all created articles, accepts only GET method.
 
 In Postman place this url `http://127.0.0.1:8000/api/blog/articles`
@@ -54,7 +54,7 @@ In Postman place this url `http://127.0.0.1:8000/api/blog/articles/1/`
 Expected response code 200
 
 ---
-> Categories
+> ## Categories
 Categories list, an API that returns a list of all created categories, accepts only GET method.
 
 In Postman place this url `http://127.0.0.1:8000/api/blog/categories`
@@ -68,7 +68,7 @@ In Postman place this url `http://127.0.0.1:8000/api/blog/categories/1/`
 Expected response code 200
 
 ---
-> Users
+> ## Users
 Users list, an API that returns a list of all registerd users, accepts only GET method, authentication reqruied.
 
 Need to pass the token in the header, `Authorization: Token your_auth_token`
@@ -84,7 +84,7 @@ Need to pass the token in the header, `Authorization: Token your_auth_token`
 In Postman place this url `http://127.0.0.1:8000/api/auth/users/1/`
 
 Expected response code 200
-> To obtain token for a user
+> ## To obtain token for a user
 
 In postman place this url `http://127.0.0.1:8000/api/auth/token`, change the Request method to POST.
 
@@ -95,7 +95,7 @@ Expected response code 200
 
 ---
 
-> React(Like) to an article
+> ## React(Like) to an article
 
 React is an POST API that store a reaction(Like) for a specified article by the logged in user.
 User can't react more than once 
@@ -110,7 +110,7 @@ Expected response code 201
 
 ---
 
-> ## Test
+## Test
 
 `python3 manage.py test`
 
