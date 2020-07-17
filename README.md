@@ -1,4 +1,4 @@
-# SiTechTask
+# DRF (Django Rest Framework)
 
 ## Installation
 ---
